@@ -7,13 +7,13 @@
             <div id="point" v-for="(item,index) in List" :key="index" 
             @click="modifyData(item)"
             :style="{top: item.x + 'px', left: item.y + 'px'}">
-              <img id="look-point" src="../assets/Polygon 1.png" width="50" height="70" alt="화각"
+              <img id="look-point" src="@/assets/Polygon 1.png" width="50" height="70" alt="화각"
               :style="{ transform: 'translate(-50%,-50%)'+`rotate(${item.angle}deg)` }"
                 style="top: -35px; left: 5px;">
             </div>
 
           <!-- 배경 이미지 -->
-          <img @click="getCoordinate" class="mapimg" src="../assets/7403915272e_l.jpg" width="600" alt="한반도">
+          <img @click="getCoordinate" class="mapimg" src="@/assets/7403915272e_l.jpg" width="600" alt="한반도">
         </div>
       </div>
       <div class="col">
@@ -39,9 +39,20 @@
           <br/>
           <br/>
           <div>
-            <h4>1. 맨처음에는 데이터가 이미 뿌려져 있다.</h4>
-            <h4>2. 이미 있는 데이터의 값을 수정해준다. ==> 빨간 점을 클릭하면 수정하는 함수가 실행된다.</h4>
-            <h4>3. 새로운 데이터 값을 추가해준다. ==> input을 통해 제어한다.</h4>
+            <h5>1. 맨처음에는 데이터가 이미 뿌려져 있다.</h5>
+            <h5>2. 이미 있는 데이터의 값을 수정해준다. ==> 빨간 점을 클릭하면 수정하는 함수가 실행된다.</h5>
+            <h5>3. 새로운 데이터 값을 추가해준다. ==> input을 통해 제어한다.</h5>
+          </div>
+          <br/>
+          <br/>
+          <div>
+            <p>
+              두가지 경우의 기능을 만들어야한다.
+            </p>
+            <ul>
+              <li>기존에 있는 값을 수정할때  ==> 완료</li>
+              <li>새로운 값을 추가해줄때</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -102,7 +113,10 @@ export default {
   },
   methods: {
     modifyData(item){
-      console.log(item); // 해당하는 정보의 값이 객체 형태로 나온다. 수정하고 싶은 값을 바꾼다.
+      // 해당하는 정보의 값이 객체 형태로 나온다. 수정하고 싶은 값을 바꾼다.
+      console.log(item);
+
+      // getAngle 함수에서 수정된 값을 가져온다. => 적용한다.
       item.x= 0;
       item.y= 10;
     },
